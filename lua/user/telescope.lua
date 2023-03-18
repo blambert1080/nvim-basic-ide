@@ -4,6 +4,7 @@ if not status_ok then
 end
 
 local actions = require "telescope.actions"
+local layout = require "telescope.actions.layout"
 
 telescope.setup {
   defaults = {
@@ -17,8 +18,11 @@ telescope.setup {
       i = {
         ["<Down>"] = actions.cycle_history_next,
         ["<Up>"] = actions.cycle_history_prev,
-        ["<C-j>"] = actions.move_selection_next,
-        ["<C-k>"] = actions.move_selection_previous,
+        ["√"] = actions.move_selection_next,
+        ["å"] = actions.move_selection_previous,
+        ["<C-a>"] = actions.preview_scrolling_up,
+        ["<C-e>"] = actions.preview_scrolling_down,
+        ["<C-p>"] = layout.toggle_preview
       },
     },
   },
