@@ -7,7 +7,7 @@ return {
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "saadparwaiz1/cmp_luasnip",
-      "L3MON4D3/LuaSnip",
+      {"L3MON4D3/LuaSnip", run = "make install_jsregexp"},
       "rafamadriz/friendly-snippets",
     },
     config = function()

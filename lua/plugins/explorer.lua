@@ -27,6 +27,8 @@ return {
         vim.keymap.set("n", "o", api.node.open.edit, opts("Open"))
         vim.keymap.set("n", "h", api.node.open.horizontal, opts("Open: Horizontal Split"))
         vim.keymap.set("n", "v", api.node.open.vertical, opts("Open: Vertical Split"))
+        vim.keymap.set("n", "c", api.tree.change_root_to_node, opts("CD"))
+        vim.keymap.set("n", "y", api.fs.copy.node, opts("Copy"))
       end
 
       require("nvim-tree").setup({
