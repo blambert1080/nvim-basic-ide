@@ -17,10 +17,12 @@ return {
     config = function()
       vim.lsp.config("lua_ls", { capabilities = capabilities })
       vim.lsp.config("basedpyright", { capabilities = capabilities })
+      vim.lsp.config("ruff", { capabilities = capabilities })
       vim.lsp.config("ts_ls", { capabilities = capabilities })
       vim.lsp.enable({
         -- These are the names of the Language server, different than in Mason
         "basedpyright",
+        "ruff",
         "lua_ls",
         "bashls",
         "cssls",

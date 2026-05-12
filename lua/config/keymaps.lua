@@ -2,6 +2,7 @@
 local keymap = vim.keymap.set
 -- Silent keymap option
 local opts = { silent = true }
+local utils = require("config.utils")
 
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
@@ -40,8 +41,8 @@ keymap("n", "<leader>O", "O<ESC>", opts)
 -- Resize with arrows
 keymap("n", "<A-Up>", ":resize -2<CR>", opts)
 keymap("n", "<A-Down>", ":resize +2<CR>", opts)
-keymap("n", "<A-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<A-Right>", ":vertical resize +2<CR>", opts)
+keymap("n", "<A-Left>", ":vertical resize +2<CR>", opts)
+keymap("n", "<A-Right>", ":vertical resize -2<CR>", opts)
 
 -- Navigate buffers
 keymap("n", "<C-t>", ":bnext<CR>", opts)
@@ -54,14 +55,14 @@ keymap("n", "<leader>q", ":qa<CR>", opts)
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
 
 -- Close buffers
-keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
+keymap("n", "<S-q>", utils.close_buffer, opts)
 
 -- Better paste
 keymap("v", "p", '"_dP', opts)
 
 -- Insert --
--- Press ml fast to enter
-keymap("i", "ml", "<ESC>", opts)
+-- Press dw fast to enter
+keymap("i", "dw", "<ESC>", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -84,6 +85,7 @@ keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
+keymap("n", "<leader>k", ":Telescope keymaps<CR>", opts)
 
 -- -- Git
 -- keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
@@ -103,6 +105,9 @@ keymap("x", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle.linewise(v
 -- keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts)
 -- keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts)
 -- keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
+
+-- Terminal
+keymap('t', 'dw', [[<C-\><C-n>]], opts)
 
 -- -- LSP
 keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
