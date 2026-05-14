@@ -32,7 +32,7 @@ return {
               useLibraryCodeForTypes = true,
             },
           },
-        }
+        },
       })
       vim.lsp.config("ruff", {
         cmd = { 'ruff', 'server' },
@@ -43,9 +43,9 @@ return {
           indent = { indentWidth = 4 },
           format = { quoteStyle = 'single' },
           lint = {
-            select = { 'E', 'F', 'Up', 'B', 'SIM', 'I', 'T20' },
+            select = { 'E', 'F', 'UP', 'B', 'SIM', 'I', 'T20' },
             ignore = { 'F401', 'SIM115', 'B017' },
-            fixable = { 'All' },
+            fixable = { 'ALL' },
           },
           exclude = { '.ruff_cache', '.svn', '.tox', '.venv', 'dist', 'venv' },
         },
