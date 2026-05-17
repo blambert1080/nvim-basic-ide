@@ -15,7 +15,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
-      vim.lsp.config("lua_ls", { capabilities = capabilities })
+      vim.lsp.config("lua_ls", { root_markers = { 'init.lua' } })
       vim.lsp.config("pyright", {
         cmd = { 'pyright-langserver', '--stdio' },
         filetypes = { 'python' },
@@ -51,6 +51,7 @@ return {
         },
       })
       vim.lsp.config("ts_ls", { capabilities = capabilities })
+      vim.lsp.config("copilot", { capabilities = capabilities })
       vim.lsp.enable({
         -- These are the names of the Language server, different than in Mason
         "pyright",
@@ -63,6 +64,7 @@ return {
         "terraformls",
         "ts_ls",
         "yamlls",
+        "copilot",
       })
     end,
   },

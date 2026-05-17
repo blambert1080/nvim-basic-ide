@@ -37,6 +37,14 @@ return {
           enable = true,
           update_cwd = true,
         },
+        filters = {
+          dotfiles = true,
+          git_ignored = true,
+        },
+        git = {
+          enable = true,
+          timeout = 500,
+        },
         renderer = {
           root_folder_modifier = ":t",
           icons = {

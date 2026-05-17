@@ -88,8 +88,7 @@ keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 keymap("n", "<leader>k", ":Telescope keymaps<CR>", opts)
 
 -- -- Git
--- keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
--- keymap("n", "<leader>gb", "<cmd>Gitsigns blame_line<CR>", opts)
+-- Keymaps stored in git.lua
 
 -- Comment
 keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", opts)
