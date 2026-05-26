@@ -2,12 +2,11 @@ return {
   {
     "folke/sidekick.nvim",
     opts = {
-      -- add any options here
       cli = {
         win = {
           layout = "right",
           split = {
-            width = 125,
+            width = 0.45,
           },
         },
         mux = {

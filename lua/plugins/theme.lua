@@ -2,14 +2,17 @@ return {
   {
     "rebelot/kanagawa.nvim",
     lazy = false,
-    --config = function ()
-    --  vim.cmd([[colorscheme kanagawa-dragon]])
-    --end
+    config = function()
+      require('kanagawa').setup({
+        transparent = true,
+      })
+      vim.cmd([[colorscheme kanagawa-wave]])
+    end
   },
   {
     "lunarvim/darkplus.nvim",
-    config = function ()
-      vim.cmd([[colorscheme darkplus]])
+    config = function()
+      -- vim.cmd([[colorscheme darkplus]])
     end
   },
 }
