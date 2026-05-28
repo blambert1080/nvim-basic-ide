@@ -1,8 +1,10 @@
 return {
   {
     "folke/sidekick.nvim",
+    dependencies = { "folke/snacks.nvim" },
     opts = {
       cli = {
+        picker = "snacks",
         win = {
           layout = "right",
           split = {
@@ -10,7 +12,7 @@ return {
           },
         },
         mux = {
-          enabled = true,
+          enabled = false,
           split = {
             vertical = true,
           },
