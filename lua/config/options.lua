@@ -45,3 +45,5 @@ vim.opt.formatoptions:remove({ "c", "r", "o" }) -- This is a sequence of letters
 vim.opt.linebreak = true
 vim.opt.colorcolumn = '100'
 vim.opt.confirm = true
+vim.opt.fillchars = { eob = " " }
+vim.opt.autoread = true

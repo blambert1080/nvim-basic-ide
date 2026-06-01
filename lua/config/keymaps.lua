@@ -82,7 +82,7 @@ keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
 -- -- Telescope
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
-keymap("n", "<leader>Ft", ":Telescope live_grep<CR>", opts)
+keymap("n", "<leader>Ft", ":lua require'telescope'.extensions.live_grep_args.live_grep_args()<CR>", opts)
 keymap("n", "<leader>ft", ":Telescope current_buffer_fuzzy_find<CR>", opts)
 keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
@@ -111,5 +111,6 @@ keymap("x", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle.linewise(v
 keymap('t', 'dw', [[<C-\><C-n>]], opts)
 
 -- -- LSP
+keymap("n", "<leader>gr", "<cmd>lua Snacks.picker.lsp_references()<cr>", { desc = "Snacks Picker: Find References" })
 keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
 keymap("n", "<leader>m", ":Mason<CR>", opts)

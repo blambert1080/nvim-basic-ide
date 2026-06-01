@@ -17,13 +17,13 @@ return {
 
       highlight = {
         enable = true,
-        disable = { "css" },
+        disable = { "css", "tsx", "typescript", "javascript" },
         use_languagetree = true
       },
 
       indent = {
         enable = true,
-        disable = { "python", "css" }
+        disable = { "python", "css", "tsx", "typescript", "javascript" }
       }
     }
   }
