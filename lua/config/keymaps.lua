@@ -112,5 +112,7 @@ keymap('t', 'dw', [[<C-\><C-n>]], opts)
 
 -- -- LSP
 keymap("n", "<leader>gr", "<cmd>lua Snacks.picker.lsp_references()<cr>", { desc = "Snacks Picker: Find References" })
-keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
+keymap("n", "<leader>lf", function()
+       require("conform").format({ async = true, lsp_fallback = true })
+     end, opts)
 keymap("n", "<leader>m", ":Mason<CR>", opts)
