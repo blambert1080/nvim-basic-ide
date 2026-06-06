@@ -16,6 +16,7 @@ return {
   lazy = false,
   opts = {
     explorer = {},
+    image = {},
     scratch = {},
     picker = {},
   },
