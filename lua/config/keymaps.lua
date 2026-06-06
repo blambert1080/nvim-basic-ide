@@ -61,7 +61,7 @@ keymap("n", "<S-q>", utils.close_buffer, opts)
 keymap("v", "p", '"_dP', opts)
 
 -- Insert --
--- Press dw fast to enter
+-- Press dw fast to exit
 keymap("i", "dw", "<ESC>", opts)
 
 -- Visual --
@@ -76,9 +76,6 @@ keymap("x", "R", ":move '>+1<CR>gv-gv", opts)
 
 -- Plugins --
 keymap("n", "<leader>p", ":Lazy<CR>")
-
--- NvimTree
-keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
 -- -- Telescope
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
@@ -110,9 +107,13 @@ keymap("x", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle.linewise(v
 -- Terminal
 keymap('t', 'dw', [[<C-\><C-n>]], opts)
 
--- -- LSP
+-- LSP
 keymap("n", "<leader>gr", "<cmd>lua Snacks.picker.lsp_references()<cr>", { desc = "Snacks Picker: Find References" })
 keymap("n", "<leader>lf", function()
-       require("conform").format({ async = true, lsp_fallback = true })
-     end, opts)
+  require("conform").format({ async = true, lsp_fallback = true })
+end, opts)
 keymap("n", "<leader>m", ":Mason<CR>", opts)
+
+-- Tab Navigation
+keymap("n", "<leader>nt", ":tabnext<CR>", { desc = "Next Tab" })
+keymap("n", "<leader>pt", ":tabprevious<CR>", { desc = "Previous Tab" })
