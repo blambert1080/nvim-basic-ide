@@ -25,7 +25,7 @@ return {
             end,
             text_align = "center",
             highlight = "Directory",
-            padding = 1,
+            separator = true
           }
         },
         separator_style = "thin", -- | "thick" | "thin" | { 'any', 'any' },

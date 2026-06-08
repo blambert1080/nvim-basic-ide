@@ -135,4 +135,18 @@ vim.keymap.set("n", "q", function()
   end
 end, { buffer = bufnr, desc = "Close gitsigns diff" })
 
+
+-- Update Buffer when Opencode makes changes
+-- Create a rule to reload the file when you focus Neovim or move your cursor
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
+  pattern = "*",
+  command = "if mode() != 'c' | checktime | endif",
+})
+
+-- Show a message at the bottom when the file changes and reloads
+vim.api.nvim_create_autocmd("FileChangedShellPost", {
+  pattern = "*",
+  command = "echohl WarningMsg | echo 'File changed on disk. Buffer reloaded.' | echohl None",
+})
+
 return M
