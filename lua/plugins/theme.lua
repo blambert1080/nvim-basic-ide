@@ -10,12 +10,6 @@ return {
     end
   },
   {
-    "lunarvim/darkplus.nvim",
-    config = function()
-      -- vim.cmd([[colorscheme darkplus]])
-    end
-  },
-  {
     'AlexvZyl/nordic.nvim',
     lazy = false,
     priority = 1000,
