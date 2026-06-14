@@ -49,7 +49,7 @@ keymap("n", "<C-t>", ":bnext<CR>", opts)
 keymap("n", "<C-s>", ":bprevious<CR>", opts)
 
 -- Close nvim
-keymap("n", "<leader>q", ":qa<CR>", opts)
+keymap("n", "<leader>qa", ":qa<CR>", opts)
 
 -- Clear highlights
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
@@ -81,7 +81,6 @@ keymap("n", "<leader>p", ":Lazy<CR>")
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>Ft", ":lua require'telescope'.extensions.live_grep_args.live_grep_args()<CR>", opts)
 keymap("n", "<leader>ft", ":Telescope current_buffer_fuzzy_find<CR>", opts)
-keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 keymap("n", "<leader>fd", ":Telescope diagnostics<CR>", opts)
 keymap("n", "<leader>k", ":Telescope keymaps<CR>", opts)
@@ -117,3 +116,7 @@ keymap("n", "<leader>m", ":Mason<CR>", opts)
 -- Tab Navigation
 keymap("n", "<leader>nt", ":tabnext<CR>", { desc = "Next Tab" })
 keymap("n", "<leader>pt", ":tabprevious<CR>", { desc = "Previous Tab" })
+keymap("n", "<leader>qt", ":tabclose<CR>", { desc = "Close Tab" })
+
+-- Word Wrap
+keymap("n", "<leader>ww", ":set wrap!<CR>", { desc = "Toggle Word Wrap" })
