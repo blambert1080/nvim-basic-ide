@@ -15,6 +15,9 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
+      -- Get capabilities from blink.cmp to enable advanced completion features
+      local capabilities = require('blink.cmp').get_lsp_capabilities()
+
       vim.lsp.config("lua_ls", { root_markers = { 'init.lua' } })
       vim.lsp.config("pyright", {
         cmd = { 'pyright-langserver', '--stdio' },
@@ -52,6 +55,21 @@ return {
       })
       vim.lsp.config("ts_ls", { capabilities = capabilities })
       vim.lsp.config("copilot", { capabilities = capabilities })
+      vim.lsp.config("gopls", {
+        capabilities = capabilities,
+        settings = {
+          gopls = {
+            analyses = {
+              unusedparams = true,     -- Highlight unused parameters
+              shadow = true,           -- Highlight variable shadowing
+            },
+            staticcheck = true,        -- Enables advanced Go linting rules
+            gofumpt = true,            -- Uses gofumpt formatting if desired
+            completeUnimported = true, -- Automatically suggests and imports unimported packages
+            usePlaceholders = true,    -- Adds placeholders for function arguments
+          },
+        },
+      })
       vim.lsp.enable({
         -- These are the names of the Language server, different than in Mason
         "pyright",
@@ -59,6 +77,7 @@ return {
         "lua_ls",
         "bashls",
         "cssls",
+        "gopls",
         "html",
         "jsonls",
         "terraformls",
