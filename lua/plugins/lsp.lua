@@ -67,6 +67,7 @@ return {
             gofumpt = true,            -- Uses gofumpt formatting if desired
             completeUnimported = true, -- Automatically suggests and imports unimported packages
             usePlaceholders = true,    -- Adds placeholders for function arguments
+            semanticTokens = true,
           },
         },
       })
@@ -78,6 +79,7 @@ return {
         "bashls",
         "cssls",
         "gopls",
+        "delve",
         "html",
         "jsonls",
         "terraformls",
@@ -86,5 +88,6 @@ return {
         "copilot",
       })
     end,
+    vim.api.nvim_set_hl(0, '@lsp.mod.shadowing', { bold = true, underline = true })
   },
 }

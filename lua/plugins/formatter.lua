@@ -9,6 +9,7 @@ return {
       css = { "prettierd" },
       html = { "prettierd" },
       json = { "prettierd" },
+      go = { "gofmt" },
     },
     format_on_save = function(bufnr)
       if vim.bo[bufnr].filetype == "lua" then
