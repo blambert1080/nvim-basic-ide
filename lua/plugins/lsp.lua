@@ -54,7 +54,7 @@ return {
         },
       })
       vim.lsp.config("ts_ls", { capabilities = capabilities })
-      vim.lsp.config("copilot", { capabilities = capabilities })
+      -- vim.lsp.config("copilot", { capabilities = capabilities })
       vim.lsp.config("gopls", {
         capabilities = capabilities,
         settings = {
@@ -85,7 +85,7 @@ return {
         "terraformls",
         "ts_ls",
         "yamlls",
-        "copilot",
+        -- "copilot",
       })
     end,
     vim.api.nvim_set_hl(0, '@lsp.mod.shadowing', { bold = true, underline = true })

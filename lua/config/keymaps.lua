@@ -77,20 +77,11 @@ keymap("x", "R", ":move '>+1<CR>gv-gv", opts)
 -- Plugins --
 keymap("n", "<leader>p", ":Lazy<CR>")
 
--- -- Telescope
-keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>Ft", ":lua require'telescope'.extensions.live_grep_args.live_grep_args()<CR>", opts)
 keymap("n", "<leader>ft", ":Telescope current_buffer_fuzzy_find<CR>", opts)
-keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
-keymap("n", "<leader>fd", ":Telescope diagnostics<CR>", opts)
-keymap("n", "<leader>k", ":Telescope keymaps<CR>", opts)
 
 -- -- Git
--- Keymaps stored in git.lua
-
--- Comment
-keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", opts)
-keymap("x", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", opts)
+-- Keymaps stored in git.lua and snacks.lua
 
 -- -- DAP
 -- keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)
@@ -107,11 +98,13 @@ keymap("x", "<leader>/", "<esc><cmd>lua require('Comment.api').toggle.linewise(v
 keymap('t', 'dw', [[<C-\><C-n>]], opts)
 
 -- LSP
-keymap("n", "<leader>gr", "<cmd>lua Snacks.picker.lsp_references()<cr>", { desc = "Snacks Picker: Find References" })
 keymap("n", "<leader>lf", function()
   require("conform").format({ async = true, lsp_fallback = true })
 end, opts)
 keymap("n", "<leader>m", ":Mason<CR>", opts)
+keymap("n", "K", function()
+  vim.lsp.buf.hover({ border = "rounded" })
+end, { desc = "Show Documentation" })
 
 -- Tab Navigation
 keymap("n", "<leader>nt", ":tabnext<CR>", { desc = "Next Tab" })

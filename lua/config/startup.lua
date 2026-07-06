@@ -9,9 +9,11 @@ vim.api.nvim_create_autocmd("VimEnter", {
   end,
 })
 
--- vim.api.nvim_create_autocmd("FileType", {
---   pattern = "typescriptreact",
---   callback = function()
---     vim.opt_local.indentexpr = "nvim_treesitter#indent()"
---   end,
--- })
+local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+
+function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+  opts = opts or {} 
+  opts.border = opts.border or 'rounded'
+  
+  return orig_util_open_floating_preview(contents, syntax, opts, ...) 
+end
