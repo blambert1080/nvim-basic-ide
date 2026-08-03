@@ -48,3 +48,10 @@ vim.opt.colorcolumn = '100'
 vim.opt.confirm = true
 vim.opt.fillchars = { eob = " " }
 vim.opt.autoread = true
+
+-- Set foldmethod and foldexpr
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+
+-- Optional: Prevent the file from being entirely collapsed when you first open it
+vim.opt.foldlevelstart = 99
