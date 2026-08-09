@@ -38,12 +38,8 @@ return {
     -- Default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, due to `opts_extend`
     sources = {
-      default = { 'lsp', 'path', 'snippets', 'buffer', 'dbab' },
+      default = { 'lsp', 'path', 'snippets', 'buffer' },
       providers = {
-        dbab = {
-          name = "dbab",
-          module = "blink_dbab",
-        },
       },
     },
 
