@@ -15,6 +15,9 @@ return {
       if vim.bo[bufnr].filetype == "lua" then
         return
       end
+      if vim.bo[bufnr].filetype == "json" then
+        return
+      end
       return { timeout_ms = 500, lsp_format = "fallback" }
     end
   },
