@@ -3,29 +3,30 @@ return {
     "rebelot/kanagawa.nvim",
     lazy = false,
     config = function()
-      require('kanagawa').setup({
+      require("kanagawa").setup({
         transparent = true,
       })
       -- vim.cmd([[colorscheme kanagawa-wave]])
-    end
+    end,
   },
   {
-    'AlexvZyl/nordic.nvim',
+    "AlexvZyl/nordic.nvim",
     lazy = false,
     priority = 1000,
     config = function()
-      require('nordic').setup({
+      require("nordic").setup({
         after_palette = function(palette)
-          palette.border_fg = '#434c5e'
-          palette.fg_float_border = '#434c5e'
-          palette.fg_popup_border = '#434c5e'
+          palette.border_fg = "#434c5e"
+          palette.fg_float_border = "#434c5e"
+          palette.fg_popup_border = "#434c5e"
+          palette.comment = "#60728a"
         end,
         on_highlight = function(highlights, palette)
           highlights.Visual = {
-            bg = palette.blue2,
-            fg = palette.black0,
+            bg = palette.gray1,
             bold = true,
           }
+          highlights.CursorLine = { bg = "NONE" }
         end,
         transparent = {
           -- Enable transparent background.
@@ -35,11 +36,31 @@ return {
         },
         bright_border = false,
         telescope = {
-          style = 'classic'
-        }
+          style = "classic",
+        },
       })
-      require('nordic').load()
-      vim.cmd([[colorscheme nordic]])
+      require("nordic").load()
+
+      vim.api.nvim_set_hl(0, "TabLine", {
+        bg = "NONE",
+      })
+
+      vim.api.nvim_set_hl(0, "TabLineFill", {
+        bg = "NONE",
+        nocombine = true,
+      })
+
+      vim.api.nvim_set_hl(0, "TabLineSel", {
+        bg = "NONE",
+      })
     end,
-  }
+  },
+  {
+    "wtfox/luna.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+      transparent = true,
+    },
+  },
 }
