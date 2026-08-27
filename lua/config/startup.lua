@@ -17,3 +17,11 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
   
   return orig_util_open_floating_preview(contents, syntax, opts, ...) 
 end
+
+vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+    pattern = {"*.md", "*.txt"},
+    callback = function()
+        vim.opt_local.spell = true
+        vim.opt_local.spelllang = 'en_us'
+    end,
+})
